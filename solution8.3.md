@@ -26,5 +26,5 @@ Reasoning:
 Since we were asked for open orders therefore we took all order whose status were ORDER_CREATED or ORDER_APPROVED and rest retrieved the fields as asked 
 
 ```
-Query Cost: 164,833.75
+Query Cost: 66,333.85
 ```
