@@ -33,5 +33,5 @@ Reasoning:
 
 In the given query we are required to verify addresses for orders placed or completed in october 2023, so for that we took the fields that we were asked to take and then on this we took all the status and left just the status of order cancelled since addresses were to be verified so the role_type_id = "BILL_TO_CUSTOMER" and the addresses given should be at the "SHIPPING_LOCATION"
 
-Query Cost: 50,242.77
+Query Cost: 39,734.5
 
