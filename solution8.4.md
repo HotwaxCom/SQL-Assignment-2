@@ -18,5 +18,5 @@ Reasoning:
 By quantity_on_hand-available_to_promise we got the difference here that is the case when the QOH and ATP does not match
 
 ```
-Query Cost: 217,168.9
+Query Cost: 222,042.51
 ```
