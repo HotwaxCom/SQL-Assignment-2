@@ -19,7 +19,7 @@ Reasoning:
 Here, we were required to find that from which sales channel at what date range orders were made and revenue made, for this we retrieved the fields as asked taking all the details from a single table that is order header
 
 ```
-Query Cost: 8450.55
+Query Cost: 9248.8
 ``` 
 
 
