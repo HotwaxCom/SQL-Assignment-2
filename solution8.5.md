@@ -26,5 +26,5 @@ Reasoning:
 Here, we are required to find when an order's status was last changed to keep a record, so in this case we need the most recent change datetimeand for this a subquery has been used to get the most recend status change by date
 
 ```
-Query Cost: 125,209.43
+Query Cost: 84,570.27
 ```
