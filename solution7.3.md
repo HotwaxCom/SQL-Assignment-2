@@ -19,7 +19,7 @@ left join order_header oh on  oh.order_id = oi.order_id
 ```
 Reasoning:
 
-Since here we were required to find the performance of different facilities according to their performance. For this I retrieved the facility_id and its facility_name. Now we are required to find count of order that it can fulfil, what revenue it generates and within what duration so did as instructed.
+Since here we were required to find the performance of different facilities so we were to find the best selling products and the revenue that each generated. For this I retrieved the facility_id and its facility_name. Now we are required to find count of order that it can fulfil, what revenue it generates and within what duration so did as instructed.
 Order item and the facility which serves it is required so we started from order_item then order_shipment, shipmemt and then facility.
 
 ```
