@@ -25,4 +25,4 @@ Since we were required to find the best-selling products in New York that is we 
 Also, it was region-specefic so I took the city="New York".
 
 ```
-Query Cost: 65,747.93
+Query Cost: 60,611.84
