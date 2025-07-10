@@ -23,7 +23,7 @@ order by i.product_id;
 
 Reasoning:
 
-Here, we are required to find the orders that were lost or damaged so we find these details from the inventory_item_variance, we take as quantity_on_hand_var as quantity_lost_or_damaged. I took fields like inventory_item_id, product_id and facility_id from the inventory_item table
+Here, we are required to find the orders that were lost or damaged so we find these details from the inventory_item_variance, we take quantity_on_hand_var as quantity_lost_or_damaged. I took fields like inventory_item_id, product_id and facility_id from the inventory_item table.
 
 ```
 Query Cost: 10,388,701.53
