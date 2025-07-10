@@ -33,7 +33,7 @@ ORDER BY oh.grand_total DESC;
 ```
 Reasoning:
 
-Here, we needed region-specefic analysis specifically New York. So for this we took state_province_geo_id = "NY" or city ="New York".
+Here, we needed region-specefic analysis specifically New York. So for this we took state_province_geo_id = "NY" or city ="New York" and applied joins as required in the question.
 
 ```
 Query Cost: 77,126.12
