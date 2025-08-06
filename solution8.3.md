@@ -2,6 +2,19 @@ Question:
 
 The business wants to know where open orders are currently assigned, whether in a physical store or a virtual facility (e.g., a distribution center or online fulfillment location).
 
+Fields to retrieve:
+
+ORDER_ID
+
+ORDER_STATUS
+
+FACILITY_ID
+
+FACILITY_NAME
+
+FACILITY_TYPE_ID
+
+
 Solution:
 ```
 select
