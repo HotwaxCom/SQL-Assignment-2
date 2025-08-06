@@ -23,21 +23,22 @@ Solution:
 
 ```
 select
-	distinct p.PRODUCT_ID ,
-	p.PRODUCT_NAME ,
-	ii.FACILITY_ID ,
-	ii.QUANTITY_ON_HAND_TOTAL ,
+	distinct p.PRODUCT_ID,
+	p.PRODUCT_NAME,
+	ii.FACILITY_ID,
+	ii.QUANTITY_ON_HAND_TOTAL,
 	ii.AVAILABLE_TO_PROMISE_TOTAL,
-	pf.REORDER_QUANTITY ,
+	pf.REORDER_QUANTITY,
 	pf.LAST_UPDATED_STAMP DateChecked
 from
 	product p
 -- Fetching the inventory details of the product
 join inventory_item ii on
-	ii.PRODUCT_ID = p.PRODUCT_ID
+	p.PRODUCT_ID = ii.PRODUCT_ID
 -- Fetching the reorder quantity and last updated stamp
 join product_facility pf on
 	pf.PRODUCT_ID = p.PRODUCT_ID;
+
 ```
 
 Reasoning:
@@ -45,6 +46,6 @@ Reasoning:
 Here, we are required to find products which have fallen below a certain threshold, for this we started from product joined with inventory_item and then with product_facility to find reorder_quantity
 
 ```
-Query Cost: 7,025,821.36
+Query Cost: 4,135,234.64
 ```
 
