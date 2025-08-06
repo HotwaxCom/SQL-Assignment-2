@@ -48,7 +48,7 @@ join party p on p.party_id=oro.party_id
 join person pe on pe.party_id=p.party_id
 join postal_address pa on pa.contact_mech_id=OCM.CONTACT_MECH_ID
 	where oh.status_id!="ORDER_CANCELLED"
-	and os.status_datetime between '2023-10-01' and '2023-10-31' group by  oh.order_id;
+	and DATE(os.status_datetime) between DATE('2023-10-01') and DATE('2023-10-31') group by  oh.order_id;
 
 ```
 Reasoning:
