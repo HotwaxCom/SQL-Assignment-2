@@ -2,6 +2,16 @@ Question:
 
 Marketing and sales teams want to see how many orders come from each channel (e.g., web, mobile app, in-store POS, marketplace) to allocate resources effectively.
 
+Fields to retrieve:
+
+SALES_CHANNEL
+
+TOTAL_ORDERS
+
+TOTAL_REVENUE
+
+REPORTING_PERIOD
+
 Solution:
 ```
 Select 
