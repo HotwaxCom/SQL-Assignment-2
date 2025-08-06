@@ -1,6 +1,18 @@
 Question:
 
- Merchandising teams need to identify the best-selling product(s) in a specific region (New York) for targeted restocking or promotions.
+Merchandising teams need to identify the best-selling product(s) in a specific region (New York) for targeted restocking or promotions.
+
+Fields to retrieve:
+
+PRODUCT_ID
+
+INTERNAL_NAME
+
+TOTAL_QUANTITY_SOLD
+
+CITY / STATE (within New York region)
+
+REVENUE (optionally, total sales amount) 
 
 Solution:
 
