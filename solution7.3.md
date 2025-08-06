@@ -1,6 +1,18 @@
 Question:
 
- Different physical or online stores (facilities) may have varying levels of performance. The business wants to compare revenue across facilities for sales planning and budgeting.
+Different physical or online stores (facilities) may have varying levels of performance. The business wants to compare revenue across facilities for sales planning and budgeting.
+
+Fields to retrieve:
+
+FACILITY_ID
+
+FACILITY_NAME
+
+TOTAL_ORDERS
+
+TOTAL_REVENUE
+
+DATE_RANGE
 
 Solution:
 ```
