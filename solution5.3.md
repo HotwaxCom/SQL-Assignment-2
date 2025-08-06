@@ -26,15 +26,17 @@ select
 from product p 
 join order_item oi on oi.product_id=p.product_id 
 join order_header oh on oi.order_id=oh.ORDER_ID
-join order_contact_mech ocm on ocm.order_id=oh.order_id
+join order_contact_mech ocm on ocm.order_id=oh.order_id and ocm.contact_mech_purpose_type_id like '%location'
 join postal_address pa on pa.contact_mech_id=ocm.contact_mech_id
-	where pa.city="New York" group by pa.city,p.PRODUCT_ID order by total_quantity_sold desc;
+	where pa.STATE_PROVINCE_GEO_ID ="NY" 
+group by pa.city,p.PRODUCT_ID 
+order by total_quantity_sold desc;
 ```
 
 Reasoning:
 
 Since we were required to find the best-selling products in New York that is we wanted products and its corresponding order quantity in order to find the best-selling product and to calculate the total revenue multiplied the quantity with its unit price.
-Also, it was region-specefic so I took the city="New York".
+Also, it was region-specefic so I took the state_province_geo_id = "NY".
 
 ```
-Query Cost: 60,611.84
+Query Cost: 25,939.39
