@@ -38,7 +38,7 @@ SELECT DISTINCT
     oh.status_id
 FROM order_header oh
 JOIN order_role oro 
-    ON oro.order_id = oh.order_id AND oro.role_type_id = 'BILL_TO_CUSTOMER'
+    ON oro.order_id = oh.order_id AND oro.role_type_id like '%CUSTOMER'
 JOIN party p 
     ON p.party_id = oro.party_id
 JOIN person per 
@@ -48,9 +48,8 @@ JOIN order_contact_mech ocm
 JOIN postal_address pa 
     ON pa.contact_mech_id = ocm.contact_mech_id
 WHERE 
-    (pa.state_province_geo_id = 'NY' OR pa.city = 'New York')
-ORDER BY oh.grand_total DESC;
-
+    pa.state_province_geo_id = 'NY' OR pa.city = 'New York'
+group by order_id;
 ```
 Reasoning:
 
