@@ -18,26 +18,26 @@ FACILITY_TYPE_ID
 Solution:
 ```
 select
-	oh.order_id,
-	oh.status_id,
-	f.facility_id,
-	f.facility_name,
-	f.facility_type_id,
-	ft.parent_type_id
-from order_header oh
-join order_shipment os
-	on os.order_id = oh.order_id
-join shipment s
-	on s.shipment_id = os.shipment_id 
-join facility f 
-	on f.facility_id=s.origin_facility_id
-join facility_type ft on ft.facility_type_id = f.facility_type_id
-	where oh.status_id="ORDER_CREATED" or oh.status_id="ORDER_APPROVED";
+	oh.ORDER_ID ,
+	oh.STATUS_ID ,
+	ii.FACILITY_ID ,
+	f.FACILITY_NAME ,
+	f.FACILITY_TYPE_ID
+from
+	order_header oh
+join inventory_item_detail iid on
+	iid.ORDER_ID = oh.ORDER_ID
+join inventory_item ii on
+	ii.INVENTORY_ITEM_ID = iid.INVENTORY_ITEM_ID
+join facility f on
+	f.FACILITY_ID = ii.FACILITY_ID
+where
+	oh.STATUS_ID in ('ORDER_APPROVED', 'ORDER_CREATED');
 ```
 Reasoning:
 
-Since we were asked for open orders therefore we took all order whose status were ORDER_CREATED or ORDER_APPROVED and rest retrieved the fields as asked 
+Since we were asked for open orders therefore we took all order whose status were ORDER_APPROVED, ORDER_CREATED and rest retrieved the fields as asked 
 
 ```
-Query Cost: 66,333.85
+Query Cost: 5,614,238.82
 ```
