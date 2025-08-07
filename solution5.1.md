@@ -41,19 +41,19 @@ select
 	oh.status_id,
 	oh.order_date as order_date
 from order_header oh
-join order_role oro on oro.order_id=oh.order_id and oro.ROLE_TYPE_ID like '%customer'
+join order_role oro on oro.order_id=oh.order_id and oro.ROLE_TYPE_ID in ('BILL_TO_CUSTOMER','CUSTOMER','END_USER_CUSTOMER','PLACING_CUSTOMER','SHIP_TO_CUSTOMER')
 join order_contact_mech ocm on ocm.order_id=oh.order_id and ocm.CONTACT_MECH_PURPOSE_TYPE_ID ="SHIPPING_LOCATION"
 join order_status os on os.order_id = oh.order_id
 join party p on p.party_id=oro.party_id
 join person pe on pe.party_id=p.party_id
 join postal_address pa on pa.contact_mech_id=OCM.CONTACT_MECH_ID
 	where oh.status_id!="ORDER_CANCELLED"
-	and DATE(os.status_datetime) between DATE('2023-10-01') and DATE('2023-10-31') group by  oh.order_id;
+	and DATE(os.status_datetime) between '2023-10-01' and '2023-10-31' group by  oh.order_id;
 
 ```
 Reasoning:
 
 In the given query we are required to verify addresses for orders placed or completed in october 2023, so for that we took the fields that we were asked to take and then on this we applied a check to rule out the orders with status as "ORDER_CANCELLED".  eft just the status of order cancelled since addresses for a customer were to be verified so role_type_id has to match with customer and the addresses given should be at the "SHIPPING_LOCATION".
 
-Query Cost: 190,529.9
+Query Cost: 555,621.22
 
