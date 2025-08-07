@@ -16,18 +16,19 @@ DIFFERENCE (QOH - ATP)
 
 Solution:
 ```
-select
-	i.product_id,
-	i.facility_id,
-	i.quantity_on_hand,
-	i.available_to_promise,
-	(i.quantity_on_hand-i.available_to_promise) as difference 
-from inventory_item i;
+SELECT
+  i.product_id,
+  i.facility_id,
+  i.quantity_on_hand      AS qoh,
+  i.available_to_promise  AS atp,
+  (i.quantity_on_hand - i.available_to_promise) AS difference
+FROM inventory_item i
+WHERE (i.quantity_on_hand - i.available_to_promise) <> 0;
 ```
 
 Reasoning:
 
-By quantity_on_hand-available_to_promise we got the difference here that is the case when the QOH and ATP does not match
+By quantity_on_hand-available_to_promise we got the difference here and the one where where the difference is not equal to zero, this means there is discrepency between QOH and ATP and we were to show this only.
 
 ```
 Query Cost: 222,042.51
