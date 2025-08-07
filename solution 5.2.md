@@ -38,7 +38,7 @@ SELECT DISTINCT
     oh.status_id
 FROM order_header oh
 JOIN order_role oro 
-    ON oro.order_id = oh.order_id AND oro.role_type_id like '%CUSTOMER'
+    ON oro.order_id = oh.order_id AND oro.ROLE_TYPE_ID IN ('BILL_TO_CUSTOMER','CUSTOMER','END_USER_CUSTOMER','PLACING_CUSTOMER','SHIP_TO_CUSTOMER')
 JOIN party p 
     ON p.party_id = oro.party_id
 JOIN person per 
@@ -48,7 +48,7 @@ JOIN order_contact_mech ocm
 JOIN postal_address pa 
     ON pa.contact_mech_id = ocm.contact_mech_id
 WHERE 
-    pa.state_province_geo_id = 'NY' OR pa.city = 'New York'
+    pa.city = 'New York'
 group by order_id;
 ```
 Reasoning:
@@ -56,5 +56,5 @@ Reasoning:
 Here, we needed region-specefic analysis specifically New York. So for this we took state_province_geo_id = "NY" or city ="New York" and applied joins as required in the question.
 
 ```
-Query Cost: 77,126.12
+Query Cost: 31,402.45
 ```
