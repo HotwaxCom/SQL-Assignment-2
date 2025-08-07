@@ -26,11 +26,11 @@ from order_item oi
 join order_header oh on  oh.order_id = oi.order_id and oh.status_id = "ORDER_COMPLETED"
 join shipment s on s.primary_order_id = oh.order_id
 join facility f on f.facility_id = s.origin_facility_id
-	group by f.facility_id,f.facility_name;
+	group by f.facility_id;
 ```
 Reasoning:
 
 Since here we were required to find the performance of each facilities so we were to compare the performance of the product and revenue that each generated. For this I retrieved the facility_id and its facility_name. Now we are required to find count of order that it can fulfil, what revenue it generates and within what duration so did as instructed.Lastly, applied a check for status to be "ORDER_COMPLETED" to calculate the performance of only those products which have been completed.
 
-Query Cost: 51,805.35
+Query Cost: 47,926.73
 ```
