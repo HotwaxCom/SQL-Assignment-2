@@ -23,29 +23,29 @@ Solution:
 
 ```
 select
-	distinct p.PRODUCT_ID,
-	p.PRODUCT_NAME,
-	ii.FACILITY_ID,
-	ii.QUANTITY_ON_HAND_TOTAL,
-	ii.AVAILABLE_TO_PROMISE_TOTAL,
-	pf.REORDER_QUANTITY,
-	pf.LAST_UPDATED_STAMP DateChecked
+    distinct p.product_id,
+    p.product_name,
+    ii.facility_id,
+    ii.quantity_on_hand_total,
+    ii.available_to_promise_total,
+    pf.reorder_quantity,
+    pf.last_updated_stamp as DateChecked
 from
-	product p
--- Fetching the inventory details of the product
-join inventory_item ii on
-	p.PRODUCT_ID = ii.PRODUCT_ID
--- Fetching the reorder quantity and last updated stamp
-join product_facility pf on
-	pf.PRODUCT_ID = p.PRODUCT_ID;
+    product p
+join inventory_item ii 
+    on p.product_id = ii.product_id
+join product_facility pf 
+    on pf.product_id = p.product_id
+where
+    ii.available_to_promise_total <= pf.reorder_quantity;
 
 ```
 
 Reasoning:
 
-Here, we are required to find products which have fallen below a certain threshold, for this we started from product joined with inventory_item and then with product_facility to find reorder_quantity
+Here, we are required to find products which have fallen below a certain threshold, for this we started from product joined with inventory_item and then with product_facility to find reorder_quantity. Also, applied a check to show only those products for which reorder_quantity is always higher than the available_to_promise_total.
 
 ```
-Query Cost: 4,135,234.64
+Query Cost: 155,195.43
 ```
 
